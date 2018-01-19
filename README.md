@@ -32,8 +32,11 @@ docker pull yoanlin/opencv-python3-tensorflow
     cd code
     pip3 install -r requirements.txt
     pip3 install --upgrade h5py
+    apt-get update
+    apt-get install libgtk2.0-dev pkg-config
 ##2.实践代码
-###a.利用 opencv生成单个字符的图片
+
+a.利用 opencv生成单个字符的图片
 
     python3 extract_single_letters_from_captchas.py
 文件夹extracted_letter_images下会生成以各个字符命名的图片文件夹
@@ -52,7 +55,7 @@ docker pull yoanlin/opencv-python3-tensorflow
 
     cd ../..
 
-###b.开始训练（风在吼马在叫，风扇在咆哮）
+b.开始训练（风在吼马在叫，风扇在咆哮）
 python3 train_model.py
 有个小 waring，不影响运行，先忽略
 
@@ -78,6 +81,23 @@ python3 train_model.py
     Epoch 10/10
     29058/29058 [==============================] - 26s 880us/step - loss: 0.0031 - acc: 0.9992 - val_loss: 0.0320 - val_acc: 0.9951
 
-###3.开始识别
+3.开始识别
 python3 solve_captchas_with_model.py
+由于我们没有桌面，所以代码需要微调，删除这两行
+
+    cv2.imshow("Output", output)
+    cv2.waitKey()
+重新运行，效果如下
+
+    CAPTCHA text is: 5ULH
+    CAPTCHA text is: E5KP
+    CAPTCHA text is: EEGB
+    CAPTCHA text is: X6RC
+    CAPTCHA text is: 5AD5
+    CAPTCHA text is: KAQT
+    CAPTCHA text is: DC3U
+    CAPTCHA text is: FLGG
+    CAPTCHA text is: TFJW
+    CAPTCHA text is: L8X2
+
 
