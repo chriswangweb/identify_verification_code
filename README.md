@@ -8,7 +8,7 @@ http://www.bugcode.cn/break_captcha.html
 **经过一番郁闷的环境搭建过程，遇到各种奇葩问题（主要是 opencv），浪费了半个小时，我决定基于 docker 构建环境
 这里主要是快速部署上的操作**
 
-##1.构建环境
+## 1.构建环境
 获得 docker 镜像
 docker pull yoanlin/opencv-python3-tensorflow
 
@@ -34,7 +34,7 @@ docker pull yoanlin/opencv-python3-tensorflow
     pip3 install --upgrade h5py
     apt-get update
     apt-get install libgtk2.0-dev pkg-config
-##2.实践代码
+## 2.实践代码
 
 a.利用 opencv生成单个字符的图片
 
@@ -81,7 +81,7 @@ python3 train_model.py
     Epoch 10/10
     29058/29058 [==============================] - 26s 880us/step - loss: 0.0031 - acc: 0.9992 - val_loss: 0.0320 - val_acc: 0.9951
 
-3.开始识别
+c.开始识别
 python3 solve_captchas_with_model.py
 由于我们没有桌面，所以代码需要微调，删除这两行
 
